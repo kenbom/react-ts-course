@@ -1,9 +1,12 @@
 import React from 'react'
-import {Child} from './Child'
+import { ChildasVFC } from './Child'
 
+// const onClick = () => {}
 const Parent = () => {
     return (
-        <Child color="blue"/>
+        <ChildasVFC color="blue" onClick={() => console.log('Clicked')}>
+           <p> abc </p>
+        </ChildasVFC>
     )
 }
 
