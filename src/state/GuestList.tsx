@@ -7,6 +7,7 @@ const GuestList: React.VFC = () => {
     const onClick = () => {
         setName("")
         setGuests([...guests, name])
+        // setName('')
     }
     return (
         <div>
@@ -14,9 +15,11 @@ const GuestList: React.VFC = () => {
             <input value={name} onChange={(e) => setName(e.target.value)} />
             <button onClick={onClick}>Add Guest</button>
             <p>name:{name}</p>
-            {guests.map((name) => {
-                return (<p>{name}</p>)
+            <ul>
+                {guests.map((name) => {
+                return (<li key={name}>{name}</li>)
             })}
+              </ul>
         </div>
     )
 }
