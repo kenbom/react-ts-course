@@ -7,9 +7,14 @@ const users = [
     { name: 'Michael', age: 20 },
   ];
 
+
 const UserSearch:React.VFC = () => {
     const [name, setName] = useState("")
     const [user, setUser] = useState<{name:string, age:number} | undefined >(undefined)
+    const OnChange = (e:any) => {
+        // e.prevent.default()
+        setName(e.target.value)
+    }
     const onClick = () => {
         const foundUser = users.find((user) => {
             return user.name === name
@@ -19,7 +24,7 @@ const UserSearch:React.VFC = () => {
     return (
         <div>
             <h3>User Search</h3>
-            <input value={name} onChange={(e) => setName(e.target.value)}/>
+            <input value={name} onChange={OnChange}/>
             <br />
             <button onClick={onClick}>Find</button>
             <p>{user && user.name}</p>
