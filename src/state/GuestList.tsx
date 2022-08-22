@@ -5,10 +5,15 @@ const GuestList: React.VFC = () => {
     const [name, setName] = useState("")
     const [guests, setGuests] = useState<string[]>([])
     const onClick = () => {
-        setName("")
+        // setName("")
         setGuests([...guests, name])
-        // setName('')
+        setName('')
     }
+    const deleteHandler = (name:string, index:number)=> {
+        setGuests(guests.filter((guest) => name!== guest))
+        console.log(guests.i)
+    }
+
     return (
         <div>
             <h3>Guest List</h3>
@@ -16,8 +21,11 @@ const GuestList: React.VFC = () => {
             <button onClick={onClick}>Add Guest</button>
             <p>name:{name}</p>
             <ul>
-                {guests.map((name) => {
-                return (<li key={name}>{name}</li>)
+                {guests.map((name, index) => {
+                return (<li key={index}>{name}
+                    <button onClick={()=>deleteHandler(name, index)}>Delete Guest</button>
+                    </li>
+                    )
             })}
               </ul>
         </div>
