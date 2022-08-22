@@ -11,7 +11,7 @@ const GuestList: React.VFC = () => {
     }
     const deleteHandler = (name:string, index:number)=> {
         setGuests(guests.filter((guest) => name!== guest))
-        console.log(guests.i)
+        console.log(guests)
     }
 
     return (
